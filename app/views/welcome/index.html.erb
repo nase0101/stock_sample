@@ -1,3 +1,10 @@
 <h1>Stock Sample</h1>
 
 <%= link_to "logout", destroy_user_session_path, method: :delete%>
+
+<p>
+  <strong>Stock:</strong>
+  <%= @stock.name %>
+  <%= @stock.ticker %>
+  <%= @stock.last_price %>
+</p>
