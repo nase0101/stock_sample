@@ -1,6 +1,11 @@
 <h1>Stock Sample</h1>
 
-<%= link_to "logout", destroy_user_session_path, method: :delete%>
+<%= form_tag welcome_path, method: :get, id: 'search-form' do %>
+  <p>
+    <%= text_field_tag :stock, params[:stock] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 
 <p>
   <strong>Stock:</strong>
@@ -8,3 +13,5 @@
   <%= @stock.ticker %>
   <%= @stock.last_price %>
 </p>
+
+<%= link_to "logout", destroy_user_session_path, method: :delete%>
