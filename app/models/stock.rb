@@ -11,9 +11,9 @@ class Stock < ActiveRecord::Base
   end
 
   def self.search_stock(ticker)
-  	if !ticker.to_s==''
+  	if !(ticker=="")
   		looked_up_stock      = StockQuote::Stock.quote(ticker)
-  		return nil unless looked_up_stock.name
+  		#return nil unless looked_up_stock.name
 
   		new_stock            = Stock.new
   		new_stock.ticker     = "#{looked_up_stock.symbol}"
@@ -21,8 +21,8 @@ class Stock < ActiveRecord::Base
   		new_stock.last_price = new_stock.price
     else
     	new_stock            = Stock.new
-  		new_stock.ticker     = "nono"
-  		new_stock.name       = "no"
+  		new_stock.ticker     = "N/A"
+  		new_stock.name       = "N/A"
   		new_stock.last_price = -1
 
     end
